@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Gentle Sleep & Mood Diary – UI Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="device-shell">
+  <div class="device-screen">
+
+    <div class="status-bar">
+      <span class="status-time">9:41</span>
+      <span class="status-icons">
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <rect x="0" y="4" width="3" height="8" rx="1" fill="currentColor" opacity=".4"/>
+          <rect x="4" y="2.5" width="3" height="9.5" rx="1" fill="currentColor" opacity=".6"/>
+          <rect x="8" y="1" width="3" height="11" rx="1" fill="currentColor" opacity=".8"/>
+          <rect x="12" y="0" width="3" height="12" rx="1" fill="currentColor"/>
+        </svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 2.5C10.2 2.5 12.2 3.5 13.6 5L15 3.6C13.2 1.9 10.7 0.8 8 0.8C5.3 0.8 2.8 1.9 1 3.6L2.4 5C3.8 3.5 5.8 2.5 8 2.5Z" fill="currentColor"/>
+          <path d="M8 5.5C9.5 5.5 10.8 6.1 11.8 7.1L13.2 5.7C11.9 4.4 10.1 3.6 8 3.6C5.9 3.6 4.1 4.4 2.8 5.7L4.2 7.1C5.2 6.1 6.5 5.5 8 5.5Z" fill="currentColor"/>
+          <circle cx="8" cy="10" r="1.5" fill="currentColor"/>
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor" stroke-opacity=".35"/>
+          <rect x="2" y="2" width="17" height="8" rx="2" fill="currentColor"/>
+          <path d="M23 4.5v3a1.5 1.5 0 0 0 0-3Z" fill="currentColor" opacity=".4"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="screens-container">
+
+      <!-- ONBOARDING: WELCOME -->
+      <div id="screen-welcome" class="screen active">
+        <div class="onboarding-wrap">
+          <div class="ob-illustration">
+            <div class="ob-scene">
+              <div class="ob-moon">🌙</div>
+              <div class="ob-stars">
+                <span style="top:10%;left:20%">✦</span>
+                <span style="top:25%;left:70%">✦</span>
+                <span style="top:15%;left:50%">·</span>
+                <span style="top:35%;left:35%">·</span>
+              </div>
+              <div class="ob-bed">🛏</div>
+              <div class="ob-face">😊</div>
+            </div>
+          </div>
+          <div class="ob-content">
+            <h1 class="ob-title">Gentle Sleep<br/>&amp; Mood Diary</h1>
+            <p class="ob-tagline">30 seconds a day.<br/>Insights stay on your phone.</p>
+            <div class="ob-pills">
+              <span class="ob-pill">🔒 Private</span>
+              <span class="ob-pill">📵 No wearables</span>
+              <span class="ob-pill">☁️ No cloud</span>
+            </div>
+          </div>
+          <div class="ob-actions">
+            <button class="btn-primary" onclick="showScreen('screen-privacy')">Get started</button>
+            <button class="btn-ghost" onclick="showScreen('screen-privacy')">How it works →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ONBOARDING: PRIVACY -->
+      <div id="screen-privacy" class="screen">
+        <div class="onboarding-wrap">
+          <div class="ob-illustration small">
+            <div class="ob-lock-scene">
+              <div class="ob-lock-icon">🔒</div>
+              <div class="ob-phone-icon">📱</div>
+            </div>
+          </div>
+          <div class="ob-content">
+            <h2 class="ob-title sm">Your data is<br/>yours. Always.</h2>
+            <p class="ob-tagline sm">We built this for people who want help, not surveillance.</p>
+          </div>
+          <div class="privacy-bullets">
+            <div class="privacy-row">
+              <span class="privacy-icon">✅</span>
+              <div>
+                <strong>No account required</strong>
+                <p>Open the app and start logging immediately.</p>
+              </div>
+            </div>
+            <div class="privacy-row">
+              <span class="privacy-icon">📱</span>
+              <div>
+                <strong>Entries stay on this device</strong>
+                <p>Sleep, mood, and notes are never sent to any server.</p>
+              </div>
+            </div>
+            <div class="privacy-row">
+              <span class="privacy-icon">💾</span>
+              <div>
+                <strong>Optional backup you control</strong>
+                <p>Export an encrypted file to your own storage anytime.</p>
+              </div>
+            </div>
+            <div class="privacy-row">
+              <span class="privacy-icon">🔬</span>
+              <div class="toggle-row">
+                <div>
+                  <strong>Anonymous crash reports</strong>
+                  <p>Helps us fix bugs. No personal data included.</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="ob-actions mt-auto">
+            <button class="btn-primary" onclick="showScreen('screen-prefs')">Continue</button>
+            <button class="btn-ghost" onclick="showScreen('screen-welcome')">← Back</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ONBOARDING: PREFERENCES -->
+      <div id="screen-prefs" class="screen">
+        <div class="onboarding-wrap">
+          <div class="ob-content top">
+            <p class="ob-step">Step 3 of 3</p>
+            <h2 class="ob-title sm">What do you care<br/>about most right now?</h2>
+            <p class="ob-tagline sm">This shapes the tone of your weekly insights. You can change it later.</p>
+          </div>
+          <div class="prefs-chips">
+            <button class="pref-chip active" onclick="selectPref(this)">
+              <span class="pref-emoji">⚡</span>
+              <span>Better energy</span>
+            </button>
+            <button class="pref-chip" onclick="selectPref(this)">
+              <span class="pref-emoji">😌</span>
+              <span>More stable mood</span>
+            </button>
+            <button class="pref-chip" onclick="selectPref(this)">
+              <span class="pref-emoji">🌙</span>
+              <span>More consistent sleep</span>
+            </button>
+            <button class="pref-chip" onclick="selectPref(this)">
+              <span class="pref-emoji">📋</span>
+              <span>Just tracking</span>
+            </button>
+          </div>
+          <div class="ob-actions mt-auto">
+            <button class="btn-primary" onclick="enterApp()">Start tracking →</button>
+            <button class="btn-ghost" onclick="enterApp()">Skip for now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN APP -->
+      <div id="screen-app" class="screen app-screen">
+
+        <div class="app-bar" id="app-bar">
+          <span class="app-bar-title" id="app-bar-title">Today</span>
+          <button class="app-bar-icon" onclick="showSettings()">⚙️</button>
+        </div>
+
+        <!-- TAB: TODAY -->
+        <div id="tab-today" class="tab-content active">
+          <div class="tab-scroll">
+            <div class="date-nav">
+              <button class="date-arrow" onclick="changeDay(-1)">‹</button>
+              <div class="date-pill" id="date-display">Friday, 27 March</div>
+              <button class="date-arrow" onclick="changeDay(1)">›</button>
+            </div>
+
+            <div class="card sleep-card">
+              <div class="card-header">
+                <span class="card-icon">🛏</span>
+                <span class="card-label">Sleep</span>
+                <span class="card-badge" id="sleep-badge">7 h 40 min</span>
+              </div>
+              <div class="sleep-times">
+                <div class="time-field" onclick="openTimePicker('bedtime')">
+                  <span class="time-label">Went to bed</span>
+                  <span class="time-value" id="bedtime-val">11:20 PM</span>
+                </div>
+                <div class="time-divider">→</div>
+                <div class="time-field" onclick="openTimePicker('waketime')">
+                  <span class="time-label">Woke up</span>
+                  <span class="time-value" id="waketime-val">7:00 AM</span>
+                </div>
+              </div>
+              <div class="sleep-quality-row">
+                <span class="sq-label">Sleep quality</span>
+                <div class="sq-icons" id="sleep-quality">
+                  <button class="sq-btn" data-val="1" onclick="setSleepQuality(1)">😴</button>
+                  <button class="sq-btn" data-val="2" onclick="setSleepQuality(2)">😪</button>
+                  <button class="sq-btn active" data-val="3" onclick="setSleepQuality(3)">😐</button>
+                  <button class="sq-btn" data-val="4" onclick="setSleepQuality(4)">😊</button>
+                  <button class="sq-btn" data-val="5" onclick="setSleepQuality(5)">😄</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mood-card">
+              <div class="card-header">
+                <span class="card-icon">💭</span>
+                <span class="card-label">Mood</span>
+                <span class="card-badge mood-badge" id="mood-badge">Good</span>
+              </div>
+              <p class="card-sub">How you felt for most of the day</p>
+              <div class="scale-row" id="mood-scale">
+                <button class="scale-btn" data-val="1" onclick="setMood(1)"><span class="scale-emoji">😞</span><span class="scale-text">Very low</span></button>
+                <button class="scale-btn" data-val="2" onclick="setMood(2)"><span class="scale-emoji">😕</span><span class="scale-text">Low</span></button>
+                <button class="scale-btn" data-val="3" onclick="setMood(3)"><span class="scale-emoji">😐</span><span class="scale-text">Okay</span></button>
+                <button class="scale-btn active" data-val="4" onclick="setMood(4)"><span class="scale-emoji">😊</span><span class="scale-text">Good</span></button>
+                <button class="scale-btn" data-val="5" onclick="setMood(5)"><span class="scale-emoji">😄</span><span class="scale-text">Great</span></button>
+              </div>
+            </div>
+
+            <div class="card energy-card">
+              <div class="card-header">
+                <span class="card-icon">⚡</span>
+                <span class="card-label">Energy</span>
+                <span class="card-badge energy-badge" id="energy-badge">Moderate</span>
+              </div>
+              <p class="card-sub">How much energy did you have today?</p>
+              <div class="scale-row" id="energy-scale">
+                <button class="scale-btn" data-val="1" onclick="setEnergy(1)"><span class="scale-emoji">🪫</span><span class="scale-text">Empty</span></button>
+                <button class="scale-btn" data-val="2" onclick="setEnergy(2)"><span class="scale-emoji">🔋</span><span class="scale-text">Low</span></button>
+                <button class="scale-btn active" data-val="3" onclick="setEnergy(3)"><span class="scale-emoji">🔋</span><span class="scale-text">Moderate</span></button>
+                <button class="scale-btn" data-val="4" onclick="setEnergy(4)"><span class="scale-emoji">⚡</span><span class="scale-text">Good</span></button>
+                <button class="scale-btn" data-val="5" onclick="setEnergy(5)"><span class="scale-emoji">✨</span><span class="scale-text">High</span></button>
+              </div>
+            </div>
+
+            <div class="card note-card">
+              <div class="card-header">
+                <span class="card-icon">✏️</span>
+                <span class="card-label">One line about today</span>
+                <span class="card-badge optional-badge">optional</span>
+              </div>
+              <textarea class="note-input" id="note-input" maxlength="150"
+                placeholder="e.g., 'Late Netflix, heavy dinner'" rows="2"
+                oninput="updateCharCount(this)"></textarea>
+              <div class="note-footer">
+                <div class="note-chips">
+                  <button class="note-chip" onclick="addChip('Evening walk')">+ Evening walk</button>
+                  <button class="note-chip" onclick="addChip('Late screens')">+ Late screens</button>
+                  <button class="note-chip" onclick="addChip('Stress at work')">+ Stress</button>
+                  <button class="note-chip" onclick="addChip('Exercise')">+ Exercise</button>
+                </div>
+                <span class="char-count" id="char-count">0/150</span>
+              </div>
+            </div>
+
+            <div class="section-label">Recent days</div>
+            <div class="recent-strip" id="recent-strip">
+              <div class="recent-card" onclick="switchToday(-3)">
+                <div class="recent-date">Tue</div>
+                <div class="recent-mood" style="background:#f8d7da">😕</div>
+                <div class="recent-sleep">6.2h</div>
+              </div>
+              <div class="recent-card" onclick="switchToday(-2)">
+                <div class="recent-date">Wed</div>
+                <div class="recent-mood" style="background:#fff3cd">😐</div>
+                <div class="recent-sleep">7.1h</div>
+              </div>
+              <div class="recent-card" onclick="switchToday(-1)">
+                <div class="recent-date">Thu</div>
+                <div class="recent-mood" style="background:#d4edda">😊</div>
+                <div class="recent-sleep">7.8h</div>
+              </div>
+              <div class="recent-card active" onclick="switchToday(0)">
+                <div class="recent-date">Today</div>
+                <div class="recent-mood" style="background:#d4edda">😊</div>
+                <div class="recent-sleep">7.7h</div>
+              </div>
+            </div>
+
+            <div style="height:80px"></div>
+          </div>
+          <div class="save-bar" id="save-bar">
+            <button class="btn-primary save-btn" id="save-btn" onclick="saveToday()">Save today</button>
+          </div>
+        </div>
+
+        <!-- TAB: HISTORY -->
+        <div id="tab-history" class="tab-content">
+          <div class="tab-scroll">
+            <div class="seg-control">
+              <button class="seg-btn active" id="seg-cal" onclick="switchHistoryView('cal')">Calendar</button>
+              <button class="seg-btn" id="seg-list" onclick="switchHistoryView('list')">List</button>
+            </div>
+            <div id="history-cal" class="history-section">
+              <div class="cal-header">
+                <button class="cal-nav" onclick="calMonth(-1)">‹</button>
+                <span class="cal-month" id="cal-month-label">March 2026</span>
+                <button class="cal-nav" onclick="calMonth(1)">›</button>
+              </div>
+              <div class="cal-grid">
+                <div class="cal-dow">S</div><div class="cal-dow">M</div>
+                <div class="cal-dow">T</div><div class="cal-dow">W</div>
+                <div class="cal-dow">T</div><div class="cal-dow">F</div>
+                <div class="cal-dow">S</div>
+              </div>
+              <div class="cal-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#d4edda"></span> Great mood</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#fff3cd"></span> Okay</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#f8d7da"></span> Low</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#e9ecef"></span> No data</span>
+              </div>
+            </div>
+            <div id="history-list" class="history-section" style="display:none">
+              <div class="hist-list" id="hist-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: INSIGHTS -->
+        <div id="tab-insights" class="tab-content">
+          <div class="tab-scroll">
+            <div class="seg-control">
+              <button class="seg-btn active" id="seg-week" onclick="switchInsightPeriod('week')">This week</button>
+              <button class="seg-btn" id="seg-30" onclick="switchInsightPeriod('30')">30 days</button>
+              <button class="seg-btn" id="seg-all" onclick="switchInsightPeriod('all')">All time</button>
+            </div>
+
+            <div class="experiment-banner" id="exp-banner" style="display:none">
+              <span class="exp-icon">🧪</span>
+              <div class="exp-info">
+                <strong>Experiment running</strong>
+                <span>Earlier bedtime · Day 3 of 7</span>
+              </div>
+              <button class="exp-view-btn" onclick="scrollToExperiment()">View →</button>
+            </div>
+
+            <div class="insight-card summary-card">
+              <div class="insight-card-header">
+                <span class="insight-icon">🌟</span>
+                <span class="insight-title">This week at a glance</span>
+              </div>
+              <p class="insight-body">On days you slept around <strong>7–8 hours</strong>, your energy was usually higher than your weekly average.</p>
+              <p class="insight-body">When you went to bed after <strong>1:00 am</strong>, your next‑day mood tended to be lower.</p>
+              <p class="insight-body">Your most consistent sleep days were <strong>Tuesday and Thursday</strong> this week.</p>
+              <div class="insight-card-footer">
+                <span class="insight-disclaimer">Not medical advice · Data stays on your phone</span>
+                <button class="insight-show-graph" onclick="toggleGraph('summary-graph')">Show graph ↓</button>
+              </div>
+              <div id="summary-graph" class="mini-graph" style="display:none">
+                <div class="graph-title">Sleep duration vs Energy (7 days)</div>
+                <div class="bar-chart">
+                  <div class="bar-group"><div class="bar sleep-bar" style="height:62%"></div><div class="bar energy-bar" style="height:55%"></div><div class="bar-label">Mon</div></div>
+                  <div class="bar-group"><div class="bar sleep-bar" style="height:45%"></div><div class="bar energy-bar" style="height:35%"></div><div class="bar-label">Tue</div></div>
+                  <div class="bar-group"><div class="bar sleep-bar" style="height:70%"></div><div class="bar energy-bar" style="height:68%"></div><div class="bar-label">Wed</div></div>
+                  <div class="bar-group"><div class="bar sleep-bar" style="height:80%"></div><div class="bar energy-bar" style="height:78%"></div><div class="bar-label">Thu</div></div>
+                  <div class="bar-group"><div class="bar sleep-bar" style="height:58%"></div><div class="bar energy-bar" style="height:52%"></div><div class="bar-label">Fri</div></div>
+                  <div class="bar-group"><div class="bar sleep-bar" style="height:90%"></div><div class="bar energy-bar" style="height:85%"></div><div class="bar-label">Sat</div></div>
+                  <div class="bar-group"><div class="bar sleep-bar" style="height:75%"></div><div class="bar energy-bar" style="height:72%"></div><div class="bar-label">Sun</div></div>
+                </div>
+                <div class="graph-legend">
+                  <span><span class="legend-sq sleep-sq"></span>Sleep</span>
+                  <span><span class="legend-sq energy-sq"></span>Energy</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="insight-card pattern-card">
+              <div class="insight-card-header">
+                <span class="insight-icon">🛏⚡</span>
+                <div><span class="pattern-tag">Pattern</span><span class="insight-title sm">Sleep duration → Energy</span></div>
+              </div>
+              <p class="insight-body">When you sleep <strong>less than 6 hours</strong>, your energy the next day is on average <strong>1.3 points lower</strong> than your usual.</p>
+              <div class="stat-row">
+                <div class="stat-pill"><span>6h+ nights</span><strong>⚡ 3.8 avg</strong></div>
+                <div class="stat-pill low"><span>&lt;6h nights</span><strong>⚡ 2.5 avg</strong></div>
+              </div>
+              <div class="insight-card-footer">
+                <button class="why-btn" onclick="toggleWhy('why1')">Why am I seeing this? ↓</button>
+              </div>
+              <div id="why1" class="why-box" style="display:none">Based on your last <strong>21 days</strong> of entries.</div>
+            </div>
+
+            <div class="insight-card pattern-card">
+              <div class="insight-card-header">
+                <span class="insight-icon">🌙⚡</span>
+                <div><span class="pattern-tag">Pattern</span><span class="insight-title sm">Bedtime → Energy</span></div>
+              </div>
+              <p class="insight-body">Sleeping before <strong>11:30 pm</strong> is linked to higher energy for you on <strong>4 out of 5 days</strong>.</p>
+              <div class="stat-row">
+                <div class="stat-pill good"><span>Before 11:30 pm</span><strong>😊 +0.9</strong></div>
+                <div class="stat-pill low"><span>After 11:30 pm</span><strong>😐 –0.6</strong></div>
+              </div>
+              <div class="insight-card-footer">
+                <button class="why-btn" onclick="toggleWhy('why2')">Why am I seeing this? ↓</button>
+              </div>
+              <div id="why2" class="why-box" style="display:none">Based on your last <strong>28 days</strong>.</div>
+            </div>
+
+            <div class="insight-card pattern-card">
+              <div class="insight-card-header">
+                <span class="insight-icon">🚶💭</span>
+                <div><span class="pattern-tag">Pattern</span><span class="insight-title sm">Evening walk → Mood</span></div>
+              </div>
+              <p class="insight-body">On days you mentioned an <strong>evening walk</strong>, your mood was above your weekly average <strong>3 out of 4 times</strong>.</p>
+              <div class="insight-card-footer">
+                <button class="why-btn" onclick="toggleWhy('why3')">Why am I seeing this? ↓</button>
+              </div>
+              <div id="why3" class="why-box" style="display:none">Based on <strong>12 entries</strong> containing "walk" over the last 30 days.</div>
+            </div>
+
+            <div class="insight-card experiment-card" id="experiment-card">
+              <div class="insight-card-header">
+                <span class="insight-icon">🧪</span>
+                <span class="insight-title">Experiment to try</span>
+              </div>
+              <p class="insight-body">Try going to bed before <strong>11:30 pm on weekdays</strong> for the next <strong>7 days</strong>. I'll compare your energy before and after — no pressure.</p>
+              <p class="insight-note">Gentle suggestion only. You can stop anytime.</p>
+              <div class="exp-actions">
+                <button class="btn-primary sm" onclick="startExperiment()">Start experiment</button>
+                <button class="btn-ghost sm" onclick="dismissExperiment()">Maybe later</button>
+              </div>
+            </div>
+
+            <div class="insight-card help-card">
+              <div class="insight-card-header">
+                <span class="insight-icon">💙</span>
+                <span class="insight-title sm">Need more support?</span>
+              </div>
+              <p class="insight-body sm">This app is a personal diary, not a medical tool. If you're feeling persistently low, speaking to a professional can really help.</p>
+              <button class="btn-outline sm">Find support resources →</button>
+            </div>
+
+            <div style="height:80px"></div>
+          </div>
+        </div>
+
+        <!-- BOTTOM NAV -->
+        <nav class="bottom-nav">
+          <button class="nav-btn active" id="nav-today" onclick="switchTab('today')">
+            <span class="nav-icon">☀️</span><span class="nav-label">Today</span>
+          </button>
+          <button class="nav-btn" id="nav-history" onclick="switchTab('history')">
+            <span class="nav-icon">📅</span><span class="nav-label">History</span>
+          </button>
+          <button class="nav-btn" id="nav-insights" onclick="switchTab('insights')">
+            <span class="nav-icon">💡</span><span class="nav-label">Insights</span>
+          </button>
+        </nav>
+
+      </div><!-- /screen-app -->
+    </div><!-- /screens-container -->
+  </div><!-- /device-screen -->
+</div><!-- /device-shell -->
+
+<!-- TIME PICKER -->
+<div id="time-picker-overlay" class="overlay" onclick="closeOverlay('time-picker-overlay')">
+  <div class="bottom-sheet" onclick="event.stopPropagation()">
+    <div class="bs-handle"></div>
+    <h3 class="bs-title" id="tp-title">Went to bed</h3>
+    <div class="time-picker-drum">
+      <div class="drum-col">
+        <button class="drum-btn" onclick="adjustTime('hour', -1)">▲</button>
+        <div class="drum-val" id="tp-hour">11</div>
+        <button class="drum-btn" onclick="adjustTime('hour', 1)">▼</button>
+      </div>
+      <div class="drum-sep">:</div>
+      <div class="drum-col">
+        <button class="drum-btn" onclick="adjustTime('min', -1)">▲</button>
+        <div class="drum-val" id="tp-min">20</div>
+        <button class="drum-btn" onclick="adjustTime('min', 1)">▼</button>
+      </div>
+      <div class="drum-col">
+        <button class="drum-btn" onclick="adjustTime('ampm', -1)">▲</button>
+        <div class="drum-val" id="tp-ampm">PM</div>
+        <button class="drum-btn" onclick="adjustTime('ampm', 1)">▼</button>
+      </div>
+    </div>
+    <button class="btn-primary full-width" onclick="confirmTime()">Confirm</button>
+  </div>
+</div>
+
+<!-- DAY DETAIL -->
+<div id="day-detail-overlay" class="overlay" onclick="closeOverlay('day-detail-overlay')">
+  <div class="bottom-sheet" onclick="event.stopPropagation()">
+    <div class="bs-handle"></div>
+    <h3 class="bs-title" id="dd-date">Thursday, 26 March</h3>
+    <div class="dd-row">
+      <span class="dd-icon">🛏</span>
+      <div><strong>7 h 48 min</strong><br/><span class="dd-sub">11:00 PM – 6:48 AM</span></div>
+    </div>
+    <div class="dd-row">
+      <span class="dd-icon">💭</span>
+      <div><strong>Mood: Good 😊</strong><br/><span class="dd-sub">Energy: Moderate ⚡</span></div>
+    </div>
+    <div class="dd-row">
+      <span class="dd-icon">✏️</span>
+      <div><span class="dd-sub">"Evening walk, calm day at work"</span></div>
+    </div>
+    <button class="btn-outline full-width mt8" onclick="openDayFromSheet()">Open full entry →</button>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div id="settings-overlay" class="overlay" onclick="closeOverlay('settings-overlay')">
+  <div class="bottom-sheet tall" onclick="event.stopPropagation()">
+    <div class="bs-handle"></div>
+    <h3 class="bs-title">Settings</h3>
+    <div class="settings-list">
+      <div class="setting-row">
+        <div class="setting-info"><strong>Daily reminder</strong><span>Ready to log today's sleep and mood?</span></div>
+        <label class="toggle"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+      </div>
+      <div class="setting-row">
+        <div class="setting-info"><strong>Reminder time</strong><span>8:30 PM</span></div>
+        <button class="setting-edit-btn">Edit</button>
+      </div>
+      <div class="setting-row">
+        <div class="setting-info"><strong>Weekly insight notification</strong><span>Sunday mornings</span></div>
+        <label class="toggle"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+      </div>
+      <div class="setting-row">
+        <div class="setting-info"><strong>Passcode / Biometric lock</strong><span>Off</span></div>
+        <label class="toggle"><input type="checkbox" /><span class="toggle-slider"></span></label>
+      </div>
+      <div class="setting-row">
+        <div class="setting-info"><strong>High contrast mode</strong><span>For better accessibility</span></div>
+        <label class="toggle"><input type="checkbox" /><span class="toggle-slider"></span></label>
+      </div>
+      <div class="setting-divider">Data</div>
+      <button class="setting-action-btn">Export data (CSV / Text)</button>
+      <button class="setting-action-btn">Backup to encrypted file</button>
+      <button class="setting-action-btn danger">Clear all data…</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
